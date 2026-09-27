@@ -11,7 +11,7 @@
 
 <style>
 /* ═══════════════════════════════════════════════════════════════════
-   ATELIER ROYALE · FINAL EDITION
+   ATELIER ROYALE · ULTIMATE FINAL EDITION
    ═══════════════════════════════════════════════════════════════════ */
 
 *,
@@ -25,7 +25,6 @@
 
 :root {
   --ink: #08040e;
-  --ink-2: #0d0716;
   --cream: #f5efe3;
   --gold: #d4a94a;
   --gold-bright: #f5cf6b;
@@ -148,7 +147,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   ENTRY GATE — with FIXED touch handling
+   ENTRY GATE
    ═══════════════════════════════════════════════════════════════════ */
 
 .entry-gate {
@@ -162,7 +161,6 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   padding: 20px;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .entry-gate.is-hidden {
@@ -189,8 +187,8 @@ a { color: inherit; text-decoration: none; }
 
 .gate-seal {
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 140px;
+  height: 140px;
   display: grid;
   place-items: center;
 }
@@ -219,22 +217,18 @@ a { color: inherit; text-decoration: none; }
   to { transform: rotate(360deg); }
 }
 
-.gate-seal-mark {
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #d4a94a, #8a6a20 60%, #d4a94a);
-  display: grid;
-  place-items: center;
-  font-family: 'Cinzel', serif;
-  font-size: 2rem;
-  font-weight: 900;
-  color: #1a0d24;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-  box-shadow:
-    0 20px 50px rgba(212, 169, 74, 0.4),
-    inset 0 -8px 24px rgba(0, 0, 0, 0.4),
-    inset 0 8px 24px rgba(255, 255, 255, 0.2);
+.gate-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px rgba(212, 169, 74, 0.8));
+  animation: sealPulse 3.4s ease-in-out infinite;
+}
+
+.gate-logo-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 30px rgba(212, 169, 74, 0.8));
   animation: sealPulse 3.4s ease-in-out infinite;
 }
 
@@ -301,15 +295,11 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
   color: #1a0d24;
   cursor: pointer;
-  box-shadow:
-    0 24px 60px rgba(212, 169, 74, 0.4),
-    inset 0 2px 0 rgba(255, 255, 255, 0.35),
-    inset 0 -3px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 24px 60px rgba(212, 169, 74, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   animation: ctaShine 6s linear infinite;
   direction: rtl;
   pointer-events: auto !important;
-  -webkit-tap-highlight-color: rgba(212, 169, 74, 0.3);
   touch-action: manipulation;
   z-index: 10;
 }
@@ -321,9 +311,7 @@ a { color: inherit; text-decoration: none; }
 .gate-cta:hover,
 .gate-cta:active {
   transform: translateY(-3px) scale(1.03);
-  box-shadow:
-    0 32px 80px rgba(212, 169, 74, 0.6),
-    inset 0 2px 0 rgba(255, 255, 255, 0.45);
+  box-shadow: 0 32px 80px rgba(212, 169, 74, 0.6);
 }
 
 .gate-cta-icon {
@@ -395,18 +383,32 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 22px;
   padding: 20px;
+}
+
+.loader-logo {
+  display: grid;
+  place-items: center;
+  width: 110px;
+  height: 110px;
+  animation: sealPulse 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(212, 169, 74, 0.7));
+}
+
+.loader-logo img,
+.loader-logo svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .loader-mark {
   font-family: 'Italiana', serif;
-  font-size: 2.4rem;
+  font-size: 2rem;
   letter-spacing: 10px;
   text-transform: uppercase;
   color: var(--gold-bright);
-  animation: sealPulse 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 30px rgba(212, 169, 74, 0.6));
   direction: ltr;
 }
 
@@ -416,19 +418,6 @@ a { color: inherit; text-decoration: none; }
   background: rgba(245, 239, 227, 0.08);
   position: relative;
   overflow: hidden;
-}
-
-.loader-track::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
-  animation: trackShimmer 1.8s ease-in-out infinite;
-}
-
-@keyframes trackShimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
 }
 
 .loader-fill {
@@ -492,17 +481,21 @@ a { color: inherit; text-decoration: none; }
 }
 
 .brand-mark {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #d4a94a, #8a6a20);
+  overflow: hidden;
   display: grid;
   place-items: center;
-  font-family: 'Cinzel', serif;
-  font-size: 0.85rem;
-  font-weight: 900;
-  color: #1a0d24;
+  background: linear-gradient(145deg, #d4a94a, #8a6a20);
   box-shadow: inset 0 -3px 8px rgba(0, 0, 0, 0.3), inset 0 2px 6px rgba(255, 255, 255, 0.25);
+}
+
+.brand-mark img,
+.brand-mark svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .brand-text {
@@ -571,8 +564,6 @@ a { color: inherit; text-decoration: none; }
 
 .stage > * { pointer-events: auto; }
 
-/* LEFT: PHOTO STAGE */
-
 .photo-stage {
   position: relative;
   height: 100%;
@@ -590,9 +581,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: 4px;
   overflow: hidden;
   background: linear-gradient(160deg, #1a0d24, #0d0716);
-  box-shadow:
-    0 40px 90px rgba(0, 0, 0, 0.7),
-    0 0 80px rgba(212, 169, 74, 0.12);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7), 0 0 80px rgba(212, 169, 74, 0.12);
 }
 
 .photo-frame::before {
@@ -708,8 +697,6 @@ a { color: inherit; text-decoration: none; }
   direction: ltr;
   white-space: nowrap;
 }
-
-/* RIGHT: EDITORIAL */
 
 .editorial {
   display: flex;
@@ -1070,7 +1057,7 @@ a { color: inherit; text-decoration: none; }
   background: rgba(13, 7, 22, 0.85);
   backdrop-filter: blur(28px) saturate(150%);
   -webkit-backdrop-filter: blur(28px) saturate(150%);
-  box-shadow: var(--shadow-deep), 0 0 60px rgba(212, 169, 74, 0.08);
+  box-shadow: var(--shadow-deep);
   overflow-x: auto;
   scrollbar-width: none;
   max-width: 100%;
@@ -1187,7 +1174,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   VINYL DISC
+   VINYL
    ═══════════════════════════════════════════════════════════════════ */
 
 .vinyl-disc {
@@ -1202,13 +1189,10 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
   display: grid;
   place-items: center;
-  background:
-    repeating-radial-gradient(circle at 50% 50%,
+  background: repeating-radial-gradient(circle at 50% 50%,
       #08040e 0, #08040e 1.5px, #14101c 2px, #14101c 3px);
   border: 1px solid rgba(212, 169, 74, 0.4);
-  box-shadow:
-    0 20px 44px rgba(0, 0, 0, 0.7),
-    0 0 40px rgba(212, 169, 74, 0.28);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.7), 0 0 40px rgba(212, 169, 74, 0.28);
   animation: vinylSpin 8s linear infinite;
   transition: transform 0.4s var(--ease-out);
   opacity: 0.9;
@@ -1388,7 +1372,7 @@ a { color: inherit; text-decoration: none; }
 .modal-panel { display: none; }
 .modal-panel.is-on { display: block; }
 
-/* Send panel */
+/* Send */
 .send-grid {
   display: grid;
   gap: 12px;
@@ -2352,7 +2336,6 @@ a { color: inherit; text-decoration: none; }
   .brand-mark {
     width: 26px;
     height: 26px;
-    font-size: 0.72rem;
   }
   .brand-text {
     font-size: 0.58rem;
@@ -2503,10 +2486,10 @@ a { color: inherit; text-decoration: none; }
     bottom: 108px;
   }
   .gate-seal { width: 110px; height: 110px; }
-  .gate-seal-mark { width: 72px; height: 72px; font-size: 1.7rem; }
   .gate-title { letter-spacing: 6px; }
   .gate-cta { padding: 15px 28px; font-size: 0.85rem; }
   .gate-message { font-size: 0.88rem; }
+  .loader-logo { width: 90px; height: 90px; }
 }
 
 @media (max-height: 700px) {
@@ -2529,14 +2512,74 @@ a { color: inherit; text-decoration: none; }
 </head>
 <body>
 
-<!-- ANIMATED ORBS BACKGROUND -->
+<!-- ═══════════════════════════════════════════════════════════════
+     INLINE SVG LOGO (No external file needed)
+     ═══════════════════════════════════════════════════════════════ -->
+<svg width="0" height="0" style="position:absolute;width:0;height:0" aria-hidden="true">
+  <defs>
+    <linearGradient id="zanoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8a6a20"/>
+      <stop offset="35%" stop-color="#d4a94a"/>
+      <stop offset="55%" stop-color="#f5cf6b"/>
+      <stop offset="75%" stop-color="#d4a94a"/>
+      <stop offset="100%" stop-color="#8a6a20"/>
+    </linearGradient>
+    <radialGradient id="zanoDisc" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#f5cf6b"/>
+      <stop offset="45%" stop-color="#d4a94a"/>
+      <stop offset="100%" stop-color="#8a6a20"/>
+    </radialGradient>
+
+    <symbol id="zanoCrest" viewBox="0 0 200 200">
+      <!-- Outer ring -->
+      <circle cx="100" cy="100" r="94" fill="none" stroke="url(#zanoGold)" stroke-width="2"/>
+      <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(212,169,74,0.3)" stroke-width="0.8" stroke-dasharray="2 4"/>
+
+      <!-- Inner disc -->
+      <circle cx="100" cy="100" r="72" fill="url(#zanoDisc)"/>
+      <circle cx="100" cy="100" r="72" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+
+      <!-- Crown -->
+      <path d="M 78 46 L 82 32 L 90 40 L 100 26 L 110 40 L 118 32 L 122 46 Z"
+            fill="url(#zanoGold)" stroke="rgba(138,106,32,0.6)" stroke-width="0.5" stroke-linejoin="round"/>
+      <circle cx="82" cy="30" r="2.2" fill="#f5cf6b"/>
+      <circle cx="100" cy="24" r="2.6" fill="#f5cf6b"/>
+      <circle cx="118" cy="30" r="2.2" fill="#f5cf6b"/>
+
+      <!-- Z -->
+      <path d="M 68 70 L 132 70 L 132 80 L 88 122 L 132 122 L 132 132 L 68 132 L 68 122 L 112 80 L 68 80 Z"
+            fill="#0a0514" opacity="0.92"/>
+      <path d="M 72 74 L 128 74 L 84 118"
+            fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+
+      <!-- Ornaments -->
+      <g fill="url(#zanoGold)">
+        <circle cx="100" cy="10" r="1.6"/>
+        <circle cx="100" cy="190" r="1.6"/>
+        <circle cx="10" cy="100" r="1.6"/>
+        <circle cx="190" cy="100" r="1.6"/>
+        <circle cx="35" cy="35" r="1.2"/>
+        <circle cx="165" cy="35" r="1.2"/>
+        <circle cx="35" cy="165" r="1.2"/>
+        <circle cx="165" cy="165" r="1.2"/>
+      </g>
+
+      <!-- MMXXVI -->
+      <text x="100" y="160" text-anchor="middle"
+            font-family="Cinzel, serif" font-size="8" font-weight="700"
+            fill="rgba(10,5,20,0.85)" letter-spacing="2">MMXXVI</text>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ANIMATED ORBS -->
 <div class="orbs" aria-hidden="true">
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
 </div>
 
-<!-- CANVAS LAYERS -->
+<!-- CANVAS -->
 <canvas id="bgCanvas" aria-hidden="true"></canvas>
 <canvas id="fxCanvas" aria-hidden="true"></canvas>
 
@@ -2550,7 +2593,11 @@ a { color: inherit; text-decoration: none; }
   <div class="gate-particles" id="gateParticles" aria-hidden="true"></div>
   <div class="gate-inner">
     <div class="gate-seal">
-      <div class="gate-seal-mark">Z</div>
+      <img src="zano-logo.png" alt="Zano" class="gate-logo-img"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <svg class="gate-logo-svg" viewBox="0 0 200 200" style="display:none">
+        <use href="#zanoCrest"/>
+      </svg>
     </div>
     <div class="gate-eyebrow">Est. 2007 · Edition MMXXVI</div>
     <div class="gate-title">Atelier Royale</div>
@@ -2558,7 +2605,7 @@ a { color: inherit; text-decoration: none; }
       هەڤالێ ئەزیز، <b>پەیامەکا دەنگی</b> بۆ تە هەیە.
       🎧 گوهداری بکە — پاشان ئاهەنگ دەست پێ دکەت.
     </p>
-    <button class="gate-cta" id="gateBtn" type="button" onclick="window.enterAtelier && window.enterAtelier()">
+    <button class="gate-cta" id="gateBtn" type="button" onclick="window.enterAtelier&&window.enterAtelier()">
       <span class="gate-cta-icon">🎧</span>
       <span>دەستپێکرن · Enter</span>
     </button>
@@ -2571,6 +2618,13 @@ a { color: inherit; text-decoration: none; }
      ═══════════════════════════════════════════════════════════════ -->
 <div class="loader" id="loader">
   <div class="loader-body">
+    <div class="loader-logo">
+      <img src="zano-logo.png" alt="Zano"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <svg viewBox="0 0 200 200" style="display:none">
+        <use href="#zanoCrest"/>
+      </svg>
+    </div>
     <div class="loader-mark">Zano</div>
     <div class="loader-track">
       <div class="loader-fill" id="loaderFill"></div>
@@ -2584,7 +2638,13 @@ a { color: inherit; text-decoration: none; }
      ═══════════════════════════════════════════════════════════════ -->
 <header class="atelier-top">
   <div class="brand" id="brandBtn" role="button" tabindex="0" aria-label="Zano Atelier">
-    <div class="brand-mark">Z</div>
+    <div class="brand-mark">
+      <img src="zano-logo.png" alt=""
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <svg viewBox="0 0 200 200" style="display:none">
+        <use href="#zanoCrest"/>
+      </svg>
+    </div>
     <div class="brand-text">Zano.B22</div>
   </div>
 
@@ -2608,11 +2668,8 @@ a { color: inherit; text-decoration: none; }
       <span class="corner-mark bl"></span>
       <span class="corner-mark br"></span>
 
-      <img
-        src="zano-photo.jpg"
-        alt="Zano.B22 Portrait"
-        class="photo-image"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <img src="zano-photo.jpg" alt="Zano.B22 Portrait" class="photo-image"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
       <div class="photo-fallback" style="display:none">Z</div>
 
       <div class="photo-caption">
@@ -2665,7 +2722,7 @@ a { color: inherit; text-decoration: none; }
         <div class="stat-label">Watching</div>
       </div>
       <div class="stat">
-        <div class="stat-num" id="zodiacText">♈ <span class="unit" id="zodiacName">Aries</span></div>
+        <div class="stat-num"><span id="zodiacIcon">♈</span> <span class="unit" id="zodiacName">Aries</span></div>
         <div class="stat-label">Zodiac</div>
       </div>
     </div>
@@ -2707,28 +2764,20 @@ a { color: inherit; text-decoration: none; }
   </section>
 </main>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     FLOATING ACTIONS
-     ═══════════════════════════════════════════════════════════════ -->
+<!-- FLOATING ACTIONS -->
 <div class="floating-actions">
   <button class="fab fab-primary" id="fabSend" type="button" aria-label="Send message">💬</button>
   <button class="fab" id="fabShare" type="button" aria-label="Share">📤</button>
   <button class="fab" id="fabComments" type="button" aria-label="Comments">💭</button>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     VINYL
-     ═══════════════════════════════════════════════════════════════ -->
+<!-- VINYL -->
 <div class="vinyl-disc is-paused" id="vinylDisc" role="button" tabindex="0" aria-label="Play music"></div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     VISUALIZER
-     ═══════════════════════════════════════════════════════════════ -->
+<!-- VISUALIZER -->
 <div class="visualizer" id="visualizer" aria-hidden="true"></div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     BOTTOM NAV
-     ═══════════════════════════════════════════════════════════════ -->
+<!-- BOTTOM NAV -->
 <nav class="bottom-nav" aria-label="Section navigation">
   <div class="nav-ribbon" id="navRibbon">
     <button class="nav-item" data-panel="gift" type="button">
@@ -2759,13 +2808,12 @@ a { color: inherit; text-decoration: none; }
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     MODAL
-     ═══════════════════════════════════════════════════════════════ -->
+<!-- MODAL -->
 <div class="modal-shell" id="modalShell">
   <div class="modal-card">
     <button class="modal-close" id="modalClose" type="button" aria-label="Close">✕</button>
 
+    <!-- SEND -->
     <div class="modal-panel" data-panel-id="send">
       <div class="modal-eyebrow">Direct Contact</div>
       <div class="modal-title">نامە بنێرە</div>
@@ -2773,23 +2821,18 @@ a { color: inherit; text-decoration: none; }
       <div class="send-grid">
         <a class="send-card tt" href="https://www.tiktok.com/@zaniiyarr1?_r=1&_t=ZT-9A552rLXRzq" target="_blank" rel="noopener noreferrer">
           <div class="send-icon">♪</div>
-          <div class="send-info">
-            <strong>TikTok · DEV</strong>
-            <span>@zaniiyarr1</span>
-          </div>
+          <div class="send-info"><strong>TikTok · DEV</strong><span>@zaniiyarr1</span></div>
           <div class="send-arrow">→</div>
         </a>
         <a class="send-card sc" href="https://snapchat.com/t/k9uvaA84" target="_blank" rel="noopener noreferrer">
           <div class="send-icon">👻</div>
-          <div class="send-info">
-            <strong>Snapchat · DEV</strong>
-            <span>Send a snap</span>
-          </div>
+          <div class="send-info"><strong>Snapchat · DEV</strong><span>Send a snap</span></div>
           <div class="send-arrow">→</div>
         </a>
       </div>
     </div>
 
+    <!-- GIFT -->
     <div class="modal-panel" data-panel-id="gift">
       <div class="modal-eyebrow">Chapter One</div>
       <div class="modal-title">🎁 Diyariya Te</div>
@@ -2810,6 +2853,7 @@ a { color: inherit; text-decoration: none; }
       </p>
     </div>
 
+    <!-- CAKE -->
     <div class="modal-panel" data-panel-id="cake">
       <div class="modal-eyebrow">Chapter Two</div>
       <div class="modal-title">🍰 Kêka Rojbûnê</div>
@@ -2835,6 +2879,7 @@ a { color: inherit; text-decoration: none; }
       </p>
     </div>
 
+    <!-- GALLERY -->
     <div class="modal-panel" data-panel-id="gallery">
       <div class="modal-eyebrow">Chapter Three</div>
       <div class="modal-title">📸 Galeriya Bîranînan</div>
@@ -2848,6 +2893,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
 
+    <!-- COUNTDOWN -->
     <div class="modal-panel" data-panel-id="countdown">
       <div class="modal-eyebrow">Chapter Four</div>
       <div class="modal-title">⏳ Demjimêra Cejnê</div>
@@ -2858,34 +2904,31 @@ a { color: inherit; text-decoration: none; }
         <div class="cd-block"><div class="cd-value" id="cdS">00</div><div class="cd-label">Çirke</div></div>
         <div class="cd-block"><div class="cd-value" id="cdMs">00</div><div class="cd-label">Sanî</div></div>
       </div>
-      <div class="modal-desc">
-        هەر چرکە دەمەکە بۆ <b>پیرۆزبایی</b> و <b>کێفxweşiyê</b>.<br>🎉 ئەڤە دەمێ تە یە!
-      </div>
+      <div class="modal-desc">هەر چرکە دەمەکە بۆ <b>پیرۆزبایی</b> و <b>کێفxweşiyê</b>.<br>🎉 ئەڤە دەمێ تە یە!</div>
     </div>
 
+    <!-- WISH -->
     <div class="modal-panel" data-panel-id="wish">
       <div class="modal-eyebrow">Chapter Five</div>
       <div class="modal-title">🌟 Kulîlka Hêviyan</div>
       <div class="modal-desc">ئارزویا خۆ بنڤیسە — بلا بێتە قبوڵکرن</div>
       <div class="wish-container">
-        <div class="wish-jar">
-          <div class="wish-fill" id="wishFill"></div>
-        </div>
+        <div class="wish-jar"><div class="wish-fill" id="wishFill"></div></div>
         <input type="text" class="wish-input" id="wishInput" placeholder="ئارزویا تە ل ڤێرێ بنڤیسە…" maxlength="120">
         <button class="btn-gold" id="wishBtn" type="button">🌟 ئارزو بکە</button>
       </div>
     </div>
 
+    <!-- FORTUNE -->
     <div class="modal-panel" data-panel-id="fortune">
       <div class="modal-eyebrow">Chapter Six</div>
       <div class="modal-title">🥠 Kûkiya Bextê</div>
       <div class="modal-desc">کلیک ل کوکییێ بکە · پەیامەکا تایبەت</div>
-      <div class="cookie-stage">
-        <div class="cookie" id="cookie">🥠</div>
-      </div>
+      <div class="cookie-stage"><div class="cookie" id="cookie">🥠</div></div>
       <p class="fortune-text" id="fortuneText"></p>
     </div>
 
+    <!-- VOICE -->
     <div class="modal-panel" data-panel-id="voice">
       <div class="modal-eyebrow">Chapter Seven</div>
       <div class="modal-title">🎙️ Peyama Dengî</div>
@@ -2897,6 +2940,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
 
+    <!-- SOCIAL HUB -->
     <div class="modal-panel" data-panel-id="social">
       <div class="modal-eyebrow">Chapter Eight</div>
       <div class="modal-title">✦ Social Hub</div>
@@ -2930,6 +2974,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
 
+    <!-- COMMENTS -->
     <div class="modal-panel" data-panel-id="comments">
       <div class="modal-eyebrow">Guestbook</div>
       <div class="modal-title">💭 Bîr û Rayên Hەڤالان</div>
@@ -2945,9 +2990,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     FINALE
-     ═══════════════════════════════════════════════════════════════ -->
+<!-- FINALE -->
 <div class="finale" id="finale">
   <div class="finale-inner">
     <div class="finale-mark">Zano.B22</div>
@@ -2967,9 +3010,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     TOAST
-     ═══════════════════════════════════════════════════════════════ -->
+<!-- TOAST -->
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -2981,7 +3022,6 @@ a { color: inherit; text-decoration: none; }
 
 const $ = (s, root) => (root || document).querySelector(s);
 const $$ = (s, root) => Array.from((root || document).querySelectorAll(s));
-
 const rnd = (a, b) => a + Math.random() * (b - a);
 const pick = arr => arr[(Math.random() * arr.length) | 0];
 const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
@@ -2997,8 +3037,7 @@ const PALETTE = [
   '#66c9d8', '#f5efe3'
 ];
 
-/* ─── TOAST ────────────────────────────────────────────────────── */
-
+/* TOAST */
 const Toast = (() => {
   const el = $('#toast');
   let timer = null;
@@ -3011,21 +3050,16 @@ const Toast = (() => {
   };
 })();
 
-/* ─── AUDIO ENGINE ─────────────────────────────────────────────── */
-
+/* AUDIO ENGINE */
 const AudioEngine = (() => {
-  let ctx = null;
-  let master = null;
-  let analyser = null;
-  let freqData = null;
-  let musicLoopId = null;
-  let musicPlaying = false;
+  let ctx = null, master = null, analyser = null, freqData = null;
+  let musicLoopId = null, musicPlaying = false;
 
   const NOTES = [
-    [392.00, 0.75], [392.00, 0.25], [440.00, 1], [392.00, 1], [523.25, 1], [493.88, 2],
-    [392.00, 0.75], [392.00, 0.25], [440.00, 1], [392.00, 1], [587.33, 1], [523.25, 2],
-    [392.00, 0.75], [392.00, 0.25], [783.99, 1], [659.25, 1], [523.25, 1], [493.88, 1], [440.00, 2],
-    [698.46, 0.75], [698.46, 0.25], [659.25, 1], [523.25, 1], [587.33, 1], [523.25, 2.5]
+    [392.00,0.75],[392.00,0.25],[440.00,1],[392.00,1],[523.25,1],[493.88,2],
+    [392.00,0.75],[392.00,0.25],[440.00,1],[392.00,1],[587.33,1],[523.25,2],
+    [392.00,0.75],[392.00,0.25],[783.99,1],[659.25,1],[523.25,1],[493.88,1],[440.00,2],
+    [698.46,0.75],[698.46,0.25],[659.25,1],[523.25,1],[587.33,1],[523.25,2.5]
   ];
 
   function init() {
@@ -3041,24 +3075,18 @@ const AudioEngine = (() => {
       freqData = new Uint8Array(analyser.frequencyBinCount);
       master.connect(analyser);
       analyser.connect(ctx.destination);
-    } catch (e) {
-      ctx = null;
-    }
+    } catch (e) { ctx = null; }
   }
 
   function resume() {
     init();
-    if (ctx && ctx.state === 'suspended') {
-      ctx.resume().catch(() => {});
-    }
+    if (ctx && ctx.state === 'suspended') ctx.resume().catch(() => {});
   }
 
   function whoosh() {
     if (!ctx) return;
     const t = ctx.currentTime;
-    const o = ctx.createOscillator();
-    const g = ctx.createGain();
-    const f = ctx.createBiquadFilter();
+    const o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
     o.type = 'sawtooth';
     o.frequency.setValueAtTime(200, t);
     o.frequency.exponentialRampToValueAtTime(2200, t + 0.6);
@@ -3076,8 +3104,7 @@ const AudioEngine = (() => {
   function boom() {
     if (!ctx) return;
     const t = ctx.currentTime;
-    const o = ctx.createOscillator();
-    const g = ctx.createGain();
+    const o = ctx.createOscillator(), g = ctx.createGain();
     o.type = 'sine';
     o.frequency.setValueAtTime(120, t);
     o.frequency.exponentialRampToValueAtTime(30, t + 0.9);
@@ -3092,8 +3119,7 @@ const AudioEngine = (() => {
     if (!ctx) return;
     [523.25, 659.25, 783.99, 1046.50].forEach((f, i) => {
       const t = ctx.currentTime + i * 0.08;
-      const o = ctx.createOscillator();
-      const g = ctx.createGain();
+      const o = ctx.createOscillator(), g = ctx.createGain();
       o.type = 'sine';
       o.frequency.value = f;
       g.gain.setValueAtTime(0.0001, t);
@@ -3110,8 +3136,7 @@ const AudioEngine = (() => {
     let t = ctx.currentTime + 0.12;
     NOTES.forEach(([freq, dur]) => {
       const d = dur * BEAT;
-      const o = ctx.createOscillator();
-      const g = ctx.createGain();
+      const o = ctx.createOscillator(), g = ctx.createGain();
       o.type = 'triangle';
       o.frequency.value = freq;
       g.gain.setValueAtTime(0.0001, t);
@@ -3120,8 +3145,7 @@ const AudioEngine = (() => {
       o.connect(g); g.connect(master);
       o.start(t); o.stop(t + d);
 
-      const o2 = ctx.createOscillator();
-      const g2 = ctx.createGain();
+      const o2 = ctx.createOscillator(), g2 = ctx.createGain();
       o2.type = 'sine';
       o2.frequency.value = freq * 2;
       g2.gain.setValueAtTime(0.0001, t);
@@ -3132,11 +3156,8 @@ const AudioEngine = (() => {
 
       t += d;
     });
-
     const total = (t - ctx.currentTime) * 1000;
-    musicLoopId = setTimeout(() => {
-      if (musicPlaying) playMelody();
-    }, total + 2200);
+    musicLoopId = setTimeout(() => { if (musicPlaying) playMelody(); }, total + 2200);
   }
 
   function toggleMusic() {
@@ -3155,22 +3176,18 @@ const AudioEngine = (() => {
   }
 
   return {
-    init, resume,
-    whoosh, boom, chime,
-    toggleMusic,
+    init, resume, whoosh, boom, chime, toggleMusic,
     getFreq: () => freqData,
     isPlaying: () => musicPlaying
   };
 })();
 
-/* ─── FX CANVAS ────────────────────────────────────────────────── */
-
+/* FX CANVAS */
 const FX = (() => {
   const cv = $('#fxCanvas');
   const cx = cv.getContext('2d');
   let W = 0, H = 0;
-  const particles = [];
-  const balloons = [];
+  const particles = [], balloons = [];
 
   function resize() {
     W = window.innerWidth;
@@ -3239,22 +3256,16 @@ const FX = (() => {
 
   function supernova(cxp, cyp) {
     for (let ring = 0; ring < 5; ring++) {
-      const count = 80 + ring * 30;
-      const power = 2 + ring * 1.8;
-      const hue = ring * 40;
+      const count = 80 + ring * 30, power = 2 + ring * 1.8, hue = ring * 40;
       for (let i = 0; i < count; i++) {
         const a = Math.random() * Math.PI * 2;
         const sp = Math.pow(Math.random(), 0.5) * power;
         particles.push({
           x: cxp, y: cyp,
-          vx: Math.cos(a) * sp,
-          vy: Math.sin(a) * sp,
-          life: 1,
-          decay: rnd(0.005, 0.012),
-          size: rnd(2, 6),
+          vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+          life: 1, decay: rnd(0.005, 0.012), size: rnd(2, 6),
           color: 'hsl(' + ((hue + rnd(-20, 20)) % 360) + ', 100%, ' + rnd(55, 85) + '%)',
-          gravity: 0.02,
-          friction: 0.97
+          gravity: 0.02, friction: 0.97
         });
       }
     }
@@ -3302,16 +3313,12 @@ const FX = (() => {
       b.y += b.vy;
       b.wobble += 0.04;
       b.x += Math.sin(b.wobble) * 0.5 + b.vx;
-      if (b.y < -80) {
-        balloons.splice(i, 1);
-        continue;
-      }
+      if (b.y < -80) { balloons.splice(i, 1); continue; }
       cx.globalAlpha = 1;
       cx.fillStyle = b.color;
       cx.beginPath();
       cx.ellipse(b.x, b.y, b.size * 0.75, b.size, 0, 0, Math.PI * 2);
       cx.fill();
-
       cx.fillStyle = 'rgba(255,255,255,.35)';
       cx.beginPath();
       cx.ellipse(b.x - b.size * 0.28, b.y - b.size * 0.4, b.size * 0.2, b.size * 0.32, -0.4, 0, Math.PI * 2);
@@ -3327,8 +3334,7 @@ const FX = (() => {
   return { burst, confetti, balloons: balloonsFn, supernova };
 })();
 
-/* ─── BACKGROUND STARS ─────────────────────────────────────────── */
-
+/* BACKGROUND STARS */
 (function initStars() {
   const cv = $('#bgCanvas');
   const cx = cv.getContext('2d');
@@ -3385,8 +3391,7 @@ const FX = (() => {
   requestAnimationFrame(loop);
 })();
 
-/* ─── VISUALIZER ───────────────────────────────────────────────── */
-
+/* VISUALIZER */
 (function initVisualizer() {
   const viz = $('#visualizer');
   const N = 40;
@@ -3415,14 +3420,12 @@ const FX = (() => {
   loop();
 })();
 
-/* ─── ENTRY GATE ───────────────────────────────────────────────── */
-
+/* ENTRY GATE */
 (function initEntryGate() {
   const gate = $('#entryGate');
   const gateP = $('#gateParticles');
   const voiceEl = $('#voiceAudio');
 
-  // Populate particles
   for (let i = 0; i < 50; i++) {
     const p = document.createElement('div');
     p.className = 'gate-p';
@@ -3451,9 +3454,7 @@ const FX = (() => {
 
     if (gate) {
       gate.classList.add('is-hidden');
-      setTimeout(() => {
-        try { gate.remove(); } catch (e) {}
-      }, 1400);
+      setTimeout(() => { try { gate.remove(); } catch (e) {} }, 1400);
     }
 
     setTimeout(() => {
@@ -3462,23 +3463,17 @@ const FX = (() => {
       FX.balloons(15);
     }, 400);
 
-    // Force loader to finish faster
     setTimeout(() => {
       const loader = $('#loader');
       if (loader) loader.classList.add('is-done');
     }, 400);
   }
 
-  // Expose globally for inline onclick
   window.enterAtelier = enter;
 
-  // Multiple listeners for max compatibility
   gate.addEventListener('click', enter);
   gate.addEventListener('touchend', function(e) {
-    if (!entered) {
-      e.preventDefault();
-      enter();
-    }
+    if (!entered) { e.preventDefault(); enter(); }
   }, { passive: false });
 
   document.addEventListener('keydown', function once(e) {
@@ -3488,43 +3483,31 @@ const FX = (() => {
     }
   });
 
-  // Try autoplay
   setTimeout(() => {
     try {
       if (voiceEl) {
         voiceEl.volume = 1.0;
         const p = voiceEl.play();
         if (p && p.then) {
-          p.then(() => {
-            if (!entered) setTimeout(enter, 500);
-          }).catch(() => {});
+          p.then(() => { if (!entered) setTimeout(enter, 500); }).catch(() => {});
         }
       }
     } catch (e) {}
   }, 400);
 
-  // Auto-enter after 15s as last resort
-  setTimeout(() => {
-    if (!entered) enter();
-  }, 15000);
+  setTimeout(() => { if (!entered) enter(); }, 15000);
 })();
 
-/* ─── LOADER ───────────────────────────────────────────────────── */
-
+/* LOADER */
 (function initLoader() {
   const loader = $('#loader');
   const fill = $('#loaderFill');
   const label = $('#loaderLabel');
   const messages = [
-    'Preparing Atelier…',
-    'Arranging the Stage…',
-    'Polishing Gold Leaf…',
-    'Tuning the Ensemble…',
-    'Curating Portraits…',
-    'Welcome, Legend ✨'
+    'Preparing Atelier…', 'Arranging the Stage…', 'Polishing Gold Leaf…',
+    'Tuning the Ensemble…', 'Curating Portraits…', 'Welcome, Legend ✨'
   ];
-  let progress = 0;
-  let msgIdx = 0;
+  let progress = 0, msgIdx = 0;
 
   const msgTimer = setInterval(() => {
     msgIdx = (msgIdx + 1) % messages.length;
@@ -3540,31 +3523,26 @@ const FX = (() => {
       if (label) label.textContent = 'Welcome, Legend ✨';
       setTimeout(() => {
         if (loader) loader.classList.add('is-done');
-        setTimeout(() => {
-          try { if (loader) loader.remove(); } catch (e) {}
-        }, 1000);
+        setTimeout(() => { try { if (loader) loader.remove(); } catch (e) {} }, 1000);
       }, 620);
     }
     if (fill) fill.style.width = progress + '%';
   }, 160);
 })();
 
-/* ─── LIVE STATS ───────────────────────────────────────────────── */
-
+/* LIVE STATS */
 (function liveStats() {
   const clock = $('#liveClock');
   const viewers = $('#viewerCount');
   const zName = $('#zodiacName');
-  const zText = $('#zodiacText');
+  const zIcon = $('#zodiacIcon');
 
   function tickClock() {
     const n = new Date();
-    if (clock) {
-      clock.textContent =
-        String(n.getHours()).padStart(2, '0') + ':' +
-        String(n.getMinutes()).padStart(2, '0') + ':' +
-        String(n.getSeconds()).padStart(2, '0');
-    }
+    if (clock) clock.textContent =
+      String(n.getHours()).padStart(2, '0') + ':' +
+      String(n.getMinutes()).padStart(2, '0') + ':' +
+      String(n.getSeconds()).padStart(2, '0');
   }
   tickClock();
   setInterval(tickClock, 1000);
@@ -3578,19 +3556,14 @@ const FX = (() => {
   tickViewers();
   setInterval(tickViewers, 2400);
 
-  const SIGNS = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo',
-                 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
-  const ICONS = ['♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒', '♓'];
+  const SIGNS = ['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'];
+  const ICONS = ['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'];
   const m = new Date().getMonth();
   if (zName) zName.textContent = SIGNS[m];
-  if (zText) {
-    const unit = zText.querySelector('.unit');
-    zText.childNodes[0].nodeValue = ICONS[m] + ' ';
-  }
+  if (zIcon) zIcon.textContent = ICONS[m];
 })();
 
-/* ─── MODE ─────────────────────────────────────────────────────── */
-
+/* MODE */
 (function initMode() {
   const btn = $('#modeBtn');
   let mode = localStorage.getItem('zano-mode') || 'dark';
@@ -3608,8 +3581,7 @@ const FX = (() => {
   }
 })();
 
-/* ─── MUSIC / FX / FULLSCREEN ──────────────────────────────────── */
-
+/* MUSIC */
 (function initMusic() {
   const btn = $('#musicBtn');
   const vinyl = $('#vinylDisc');
@@ -3626,6 +3598,7 @@ const FX = (() => {
   if (vinyl) vinyl.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
 })();
 
+/* FX BUTTON */
 (function initFx() {
   const btn = $('#fxBtn');
   if (!btn) return;
@@ -3645,23 +3618,20 @@ const FX = (() => {
   });
 })();
 
+/* FULLSCREEN */
 (function initFullscreen() {
   const btn = $('#fullBtn');
   if (!btn) return;
   btn.addEventListener('click', async (e) => {
     e.stopPropagation();
     try {
-      if (!document.fullscreenElement) {
-        await document.documentElement.requestFullscreen?.();
-      } else {
-        await document.exitFullscreen?.();
-      }
+      if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.();
+      else await document.exitFullscreen?.();
     } catch (err) {}
   });
 })();
 
-/* ─── MODAL SYSTEM ─────────────────────────────────────────────── */
-
+/* MODAL */
 const Modal = (() => {
   const shell = $('#modalShell');
   const close = $('#modalClose');
@@ -3681,11 +3651,7 @@ const Modal = (() => {
   }
 
   if (close) close.addEventListener('click', closeFn);
-  if (shell) {
-    shell.addEventListener('click', (e) => {
-      if (e.target === shell) closeFn();
-    });
-  }
+  if (shell) shell.addEventListener('click', (e) => { if (e.target === shell) closeFn(); });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && shell && shell.classList.contains('is-open')) closeFn();
   });
@@ -3701,15 +3667,10 @@ const Modal = (() => {
   return { open, close: closeFn };
 })();
 
-/* ─── FABs ─────────────────────────────────────────────────────── */
-
+/* FABs */
 (function initFabs() {
-  const send = $('#fabSend');
-  const share = $('#fabShare');
-  const comments = $('#fabComments');
-
+  const send = $('#fabSend'), share = $('#fabShare'), comments = $('#fabComments');
   if (send) send.addEventListener('click', (e) => { e.stopPropagation(); Modal.open('send'); });
-
   if (share) share.addEventListener('click', async (e) => {
     e.stopPropagation();
     const url = location.href;
@@ -3717,21 +3678,16 @@ const Modal = (() => {
     if (navigator.share) {
       try { await navigator.share({ title: 'Zano.B22 Birthday', text, url }); } catch (err) {}
     } else {
-      try {
-        await navigator.clipboard.writeText(url + ' — ' + text);
-        Toast('📋 Link copied');
-      } catch (err) { Toast('📋 ' + url); }
+      try { await navigator.clipboard.writeText(url + ' — ' + text); Toast('📋 Link copied'); }
+      catch (err) { Toast('📋 ' + url); }
     }
   });
-
   if (comments) comments.addEventListener('click', (e) => { e.stopPropagation(); Modal.open('comments'); });
 })();
 
-/* ─── GIFT ─────────────────────────────────────────────────────── */
-
+/* GIFT */
 (function initGift() {
-  const box = $('#giftBox');
-  const note = $('#giftNote');
+  const box = $('#giftBox'), note = $('#giftNote');
   if (!box) return;
   box.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -3750,14 +3706,12 @@ const Modal = (() => {
   });
 })();
 
-/* ─── CAKE ─────────────────────────────────────────────────────── */
-
+/* CAKE */
 (function initCake() {
   const cake = $('#cake');
   if (!cake) return;
   const candles = cake.querySelectorAll('.candle');
-  const hint = $('#cakeHint');
-  const wish = $('#cakeWish');
+  const hint = $('#cakeHint'), wish = $('#cakeWish');
   let left = candles.length;
 
   candles.forEach(c => {
@@ -3781,8 +3735,7 @@ const Modal = (() => {
   });
 })();
 
-/* ─── GALLERY ──────────────────────────────────────────────────── */
-
+/* GALLERY */
 (function initGallery() {
   const stage = $('#galleryStage');
   if (!stage) return;
@@ -3807,12 +3760,9 @@ const Modal = (() => {
     stage.appendChild(el);
   });
 
-  function update() {
-    stage.style.transform = 'rotateY(' + (-idx * step) + 'deg)';
-  }
+  function update() { stage.style.transform = 'rotateY(' + (-idx * step) + 'deg)'; }
 
-  const next = $('#galleryNext');
-  const prev = $('#galleryPrev');
+  const next = $('#galleryNext'), prev = $('#galleryPrev');
   if (next) next.addEventListener('click', (e) => { e.stopPropagation(); idx++; update(); AudioEngine.resume(); AudioEngine.chime(); });
   if (prev) prev.addEventListener('click', (e) => { e.stopPropagation(); idx--; update(); AudioEngine.resume(); AudioEngine.chime(); });
 
@@ -3830,8 +3780,7 @@ const Modal = (() => {
   setInterval(() => { idx++; update(); }, 4600);
 })();
 
-/* ─── COUNTDOWN ────────────────────────────────────────────────── */
-
+/* COUNTDOWN */
 (function initCountdown() {
   function update() {
     const now = new Date();
@@ -3848,12 +3797,9 @@ const Modal = (() => {
   setInterval(update, 40);
 })();
 
-/* ─── WISH ─────────────────────────────────────────────────────── */
-
+/* WISH */
 (function initWish() {
-  const input = $('#wishInput');
-  const fill = $('#wishFill');
-  const btn = $('#wishBtn');
+  const input = $('#wishInput'), fill = $('#wishFill'), btn = $('#wishBtn');
   if (!btn) return;
   let count = 0;
   btn.addEventListener('click', (e) => {
@@ -3873,11 +3819,9 @@ const Modal = (() => {
   });
 })();
 
-/* ─── COOKIE ───────────────────────────────────────────────────── */
-
+/* COOKIE */
 (function initCookie() {
-  const cookie = $('#cookie');
-  const fortune = $('#fortuneText');
+  const cookie = $('#cookie'), fortune = $('#fortuneText');
   if (!cookie) return;
   const fortunes = [
     'سەرکەفتن ل ڤێ ساڵێ ل هیڤییا تە یە! 🎉',
@@ -3903,11 +3847,9 @@ const Modal = (() => {
   });
 })();
 
-/* ─── VOICE ────────────────────────────────────────────────────── */
-
+/* VOICE */
 (function initVoice() {
-  const btn = $('#voiceBtn');
-  const audio = $('#voiceAudio');
+  const btn = $('#voiceBtn'), audio = $('#voiceAudio');
   if (!btn || !audio) return;
 
   audio.addEventListener('error', () => {
@@ -3920,29 +3862,21 @@ const Modal = (() => {
     e.stopPropagation();
     AudioEngine.resume();
     if (audio.paused) {
-      audio.play().then(() => {
-        btn.textContent = '⏸️ راوەستاندن';
-      }).catch(() => {
-        btn.textContent = '⚠️ پەیام بەردەست نییە';
-      });
+      audio.play().then(() => { btn.textContent = '⏸️ راوەستاندن'; })
+        .catch(() => { btn.textContent = '⚠️ پەیام بەردەست نییە'; });
     } else {
       audio.pause();
       btn.textContent = '▶️ لێدانی پەیام';
     }
   });
 
-  audio.addEventListener('ended', () => {
-    btn.textContent = '▶️ دووبارە لێدان';
-  });
+  audio.addEventListener('ended', () => { btn.textContent = '▶️ دووبارە لێدان'; });
 })();
 
-/* ─── COMMENTS ─────────────────────────────────────────────────── */
-
+/* COMMENTS */
 (function initComments() {
-  const stream = $('#commentsStream');
-  const nameI = $('#commentName');
-  const textI = $('#commentText');
-  const btn = $('#commentBtn');
+  const stream = $('#commentsStream'), nameI = $('#commentName');
+  const textI = $('#commentText'), btn = $('#commentBtn');
   if (!btn) return;
   const KEY = 'zano-comments';
 
@@ -3966,10 +3900,10 @@ const Modal = (() => {
       const el = document.createElement('div');
       el.className = 'comment-item';
       el.innerHTML = '<div class="comment-avatar">' + esc((c.n || 'Z')[0]).toUpperCase() + '</div>' +
-                     '<div class="comment-body">' +
-                     '<div class="comment-name">' + esc(c.n || 'Anonymous') + '</div>' +
-                     '<div class="comment-text">' + esc(c.t) + '</div>' +
-                     '</div>';
+        '<div class="comment-body">' +
+        '<div class="comment-name">' + esc(c.n || 'Anonymous') + '</div>' +
+        '<div class="comment-text">' + esc(c.t) + '</div>' +
+        '</div>';
       stream.appendChild(el);
     });
     stream.scrollTop = stream.scrollHeight;
@@ -3982,8 +3916,7 @@ const Modal = (() => {
     if (!t) return;
     list.push({ n: n, t: t, time: Date.now() });
     try { localStorage.setItem(KEY, JSON.stringify(list)); } catch (err) {}
-    nameI.value = '';
-    textI.value = '';
+    nameI.value = ''; textI.value = '';
     render();
     AudioEngine.resume();
     AudioEngine.chime();
@@ -3993,11 +3926,9 @@ const Modal = (() => {
   render();
 })();
 
-/* ─── REACTIONS ────────────────────────────────────────────────── */
-
+/* REACTIONS */
 (function initReactions() {
-  let store = {};
-  let mine = {};
+  let store = {}, mine = {};
   try { store = JSON.parse(localStorage.getItem('zano-rx') || '{}'); } catch (e) {}
   try { mine = JSON.parse(localStorage.getItem('zano-myrx') || '{}'); } catch (e) {}
 
@@ -4031,8 +3962,7 @@ const Modal = (() => {
   });
 })();
 
-/* ─── CURSOR ORB ───────────────────────────────────────────────── */
-
+/* CURSOR ORB */
 (function initCursor() {
   if (IS_TOUCH) return;
   const orb = $('#cursorOrb');
@@ -4047,8 +3977,7 @@ const Modal = (() => {
   }, { passive: true });
 })();
 
-/* ─── GLOBAL CLICK FX ──────────────────────────────────────────── */
-
+/* GLOBAL CLICK FX */
 document.addEventListener('click', (e) => {
   if (e.target.closest('.modal-card') ||
       e.target.closest('.atelier-top') ||
@@ -4061,8 +3990,7 @@ document.addEventListener('click', (e) => {
   FX.burst(e.clientX, e.clientY, { count: IS_MOBILE ? 40 : 80, power: rnd(3.5, 6.5) });
 }, { passive: true });
 
-/* ─── BRAND EASTER EGG ─────────────────────────────────────────── */
-
+/* BRAND EASTER EGG */
 (function initBrand() {
   const brand = $('#brandBtn');
   if (!brand) return;
@@ -4075,8 +4003,7 @@ document.addEventListener('click', (e) => {
   });
 })();
 
-/* ─── FINALE ───────────────────────────────────────────────────── */
-
+/* FINALE */
 (function initFinale() {
   const cta = $('#finaleCta');
   if (!cta) return;
@@ -4102,32 +4029,25 @@ document.addEventListener('click', (e) => {
   });
 })();
 
-/* ─── KEYBOARD SHORTCUTS ───────────────────────────────────────── */
-
+/* KEYBOARD */
 document.addEventListener('keydown', (e) => {
   const k = e.key.toLowerCase();
   if (k === 'm') { const b = $('#musicBtn'); if (b) b.click(); Toast('🎵 Music toggled'); }
   if (k === 'f') { const b = $('#fullBtn'); if (b) b.click(); Toast('⛶ Cinema view'); }
-  if (k === 's') { Modal.open('send'); }
+  if (k === 's') Modal.open('send');
 });
 
-/* ─── AMBIENT BURSTS ───────────────────────────────────────────── */
-
+/* AMBIENT */
 setTimeout(() => {
   FX.burst(window.innerWidth * 0.18, window.innerHeight * 0.4, { count: 100, power: 8 });
   FX.burst(window.innerWidth * 0.82, window.innerHeight * 0.6, { count: 100, power: 8 });
   FX.balloons(12);
 }, 6000);
 
-/* ─── WELCOME TOAST ────────────────────────────────────────────── */
-
 setTimeout(() => Toast('✦ Welcome to the Atelier Royale Experience ✦'), 6800);
-
-/* ─── DIAGNOSTIC ───────────────────────────────────────────────── */
 
 try {
   console.log('[ATELIER] Ready · Platform:', IS_MOBILE ? 'Mobile' : 'Desktop', '· Touch:', IS_TOUCH);
-  console.log('[ATELIER] Tap anywhere to enter the experience.');
 } catch (e) {}
 </script>
 </body>
