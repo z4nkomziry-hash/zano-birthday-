@@ -683,8 +683,51 @@ body.wide .letterbox{height:0vh}
   .carousel{height:250px}
 }
 </style>
+
+<style id="max-upgrade-css">
+/* ═══════════════════════════════════════════════════════════
+   MAX UPGRADE — LUXURY DIGITAL EXPERIENCE
+═══════════════════════════════════════════════════════════ */
+:root{--mx-gold:#ffe29a;--mx-hot:#ff4fa3;--mx-violet:#9b7bff;--mx-cyan:#6de7ff;--mx-line:rgba(255,226,154,.22)}
+body.max-mode{background:#010106}
+body.max-mode::after{content:"";position:fixed;inset:0;z-index:4;pointer-events:none;opacity:.7;background:
+ radial-gradient(600px 300px at 50% 8%,rgba(255,216,120,.10),transparent 70%),
+ radial-gradient(500px 500px at 8% 80%,rgba(255,79,163,.09),transparent 72%),
+ radial-gradient(500px 500px at 92% 70%,rgba(111,92,255,.10),transparent 72%)}
+.max-hud{position:fixed;inset:0;z-index:24;pointer-events:none}
+.max-hud .hud-line{position:absolute;background:linear-gradient(90deg,transparent,var(--mx-line),transparent);opacity:.65}
+.max-hud .top{left:8vw;right:8vw;top:11vh;height:1px}.max-hud .bottom{left:8vw;right:8vw;bottom:11vh;height:1px}
+.max-hud .left,.max-hud .right{top:18vh;bottom:18vh;width:1px;background:linear-gradient(180deg,transparent,var(--mx-line),transparent)}
+.max-hud .left{left:3vw}.max-hud .right{right:3vw}
+.max-corner{position:absolute;width:36px;height:36px;border-color:rgba(255,226,154,.35);border-style:solid;filter:drop-shadow(0 0 8px rgba(255,200,80,.2))}
+.max-corner.a{left:4.5vw;top:15vh;border-width:1px 0 0 1px}.max-corner.b{right:4.5vw;top:15vh;border-width:1px 1px 0 0}.max-corner.c{left:4.5vw;bottom:15vh;border-width:0 0 1px 1px}.max-corner.d{right:4.5vw;bottom:15vh;border-width:0 1px 1px 0}
+.max-status{position:fixed;z-index:26;left:50%;top:12.7vh;transform:translateX(-50%);font:700 9px/1 'Cinzel',serif;letter-spacing:5px;color:rgba(255,226,154,.48);text-transform:uppercase;white-space:nowrap;pointer-events:none}
+.max-status i{display:inline-block;width:5px;height:5px;border-radius:50%;background:#72ffb0;box-shadow:0 0 12px #72ffb0;margin-right:8px;animation:pulseDot 1.5s infinite}
+@keyframes pulseDot{50%{opacity:.3;transform:scale(.7)}}
+.hero-card{transform-style:preserve-3d;will-change:transform}
+.hero-card::before{content:"";position:absolute;inset:1px;border-radius:27px;pointer-events:none;background:linear-gradient(125deg,rgba(255,255,255,.12),transparent 22%,transparent 72%,rgba(255,210,100,.08));opacity:.8}
+.hero-card::after{content:"";position:absolute;inset:-1px;border-radius:29px;padding:1px;background:linear-gradient(120deg,rgba(255,232,160,.55),transparent 20%,rgba(255,79,163,.18) 48%,transparent 75%,rgba(255,232,160,.42));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.7}
+.photo-frame{transform:translateZ(32px);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.text-side{transform:translateZ(22px)}
+.social{position:relative;overflow:hidden}.social::after{content:"";position:absolute;inset:-80% 45%;transform:rotate(25deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transition:transform .7s}.social:hover::after{transform:translateX(260%) rotate(25deg)}
+.journey-nav{background:linear-gradient(180deg,rgba(20,12,32,.74),rgba(8,6,15,.88))!important;border-color:rgba(255,226,154,.22)!important;box-shadow:0 18px 60px rgba(0,0,0,.7),0 0 40px rgba(255,190,80,.08)!important}
+.journey-nav button{position:relative;transition:transform .3s,background .3s,box-shadow .3s}.journey-nav button::before{content:"";position:absolute;left:50%;bottom:5px;width:0;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--mx-gold),var(--mx-hot));transition:.3s;transform:translateX(-50%)}.journey-nav button.active::before{width:22px}.journey-nav button:hover{transform:translateY(-5px)}
+.max-pulse{animation:maxPulse 2.8s ease-in-out infinite}@keyframes maxPulse{0%,100%{filter:drop-shadow(0 0 0 rgba(255,210,100,0))}50%{filter:drop-shadow(0 0 18px rgba(255,210,100,.28))}}
+.max-toast{position:fixed;left:50%;bottom:calc(11vh + 78px);transform:translate(-50%,20px);z-index:80;opacity:0;pointer-events:none;padding:12px 20px;border:1px solid rgba(255,226,154,.24);border-radius:999px;background:rgba(10,7,18,.78);backdrop-filter:blur(18px);font:600 11px/1.2 'Vazirmatn',sans-serif;color:rgba(255,255,255,.86);box-shadow:0 18px 60px rgba(0,0,0,.5);transition:.45s}.max-toast.show{opacity:1;transform:translate(-50%,0)}
+.max-spark{position:fixed;z-index:18;width:3px;height:3px;border-radius:50%;background:#ffe7a6;box-shadow:0 0 14px 4px rgba(255,213,105,.7);pointer-events:none;animation:sparkFloat var(--dur) linear forwards}@keyframes sparkFloat{from{transform:translate3d(0,30px,0) scale(.5);opacity:0}15%{opacity:1}to{transform:translate3d(var(--dx),-110vh,0) scale(1.1);opacity:0}}
+@media(max-width:700px){.max-status{top:10.2vh;font-size:7px;letter-spacing:3px}.max-hud .left,.max-hud .right{display:none}.max-corner{width:24px;height:24px}.max-corner.a{left:3vw;top:12vh}.max-corner.b{right:3vw;top:12vh}.max-corner.c{left:3vw;bottom:12vh}.max-corner.d{right:3vw;bottom:12vh}.max-toast{bottom:92px}.hero-card{border-radius:24px}.hero-card::after{border-radius:25px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}}
+</style>
 </head>
-<body>
+<body class="max-mode">
+<!-- MAX EXPERIENCE HUD -->
+<div class="max-hud" aria-hidden="true">
+  <span class="hud-line top"></span><span class="hud-line bottom"></span><span class="hud-line left"></span><span class="hud-line right"></span>
+  <span class="max-corner a"></span><span class="max-corner b"></span><span class="max-corner c"></span><span class="max-corner d"></span>
+</div>
+<div class="max-status"><i></i> ZANO.B22 · IMPERIAL DIGITAL EXPERIENCE</div>
+<div class="max-toast" id="maxToast">✨ Imperial Mode Activated</div>
+
 
 <!-- ═══════════════════════════════════════════════════════════
      LOADER
@@ -2032,6 +2075,60 @@ setTimeout(() => {
   spawnBurst(innerWidth*0.82, innerHeight*0.6, {count:100, power:8});
   spawnBalloons(12);
 }, 5400);
+</script>
+
+<script id="max-upgrade-js">
+/* ═══════════════════════════════════════════════════════════
+   MAX UPGRADE ENGINE
+═══════════════════════════════════════════════════════════ */
+(function MAXExperience(){
+  const card=document.querySelector('.hero-card');
+  const hero=document.querySelector('.hero');
+  const toast=document.getElementById('maxToast');
+  let toastTimer;
+  function showToast(msg){if(!toast)return;toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2400)}
+
+  // Premium 3D card response — desktop only.
+  if(card && matchMedia('(hover:hover)').matches){
+    hero.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(1400px) rotateX(${-y*5}deg) rotateY(${x*7}deg) translateY(-2px)`;
+    });
+    hero.addEventListener('mouseleave',()=>{card.style.transform='';});
+  }
+
+  // Ambient luxury spark field.
+  const makeSpark=()=>{
+    if(document.hidden)return;
+    const s=document.createElement('span');s.className='max-spark';
+    s.style.left=(Math.random()*100)+'vw';s.style.bottom='-10px';
+    s.style.setProperty('--dx',((Math.random()-.5)*180)+'px');s.style.setProperty('--dur',(7+Math.random()*8)+'s');
+    document.body.appendChild(s);setTimeout(()=>s.remove(),16000);
+  };
+  setInterval(makeSpark,700); for(let i=0;i<12;i++)setTimeout(makeSpark,i*250);
+
+  // Keyboard / accessibility shortcuts.
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){ document.getElementById('modal')?.classList.remove('on'); }
+    if(e.key.toLowerCase()==='m'){
+      const b=document.getElementById('musicBtn'); if(b){b.click();showToast('🎵 Music control toggled');}
+    }
+    if(e.key.toLowerCase()==='f'){
+      const b=document.getElementById('fullBtn'); if(b){b.click();showToast('⛶ Cinema view toggled');}
+    }
+  });
+
+  // Add a tiny premium ripple to interactive controls.
+  document.addEventListener('pointerdown',e=>{
+    const b=e.target.closest('button,.social,.brand'); if(!b)return;
+    const r=b.getBoundingClientRect(),rip=document.createElement('span');
+    Object.assign(rip.style,{position:'fixed',left:(e.clientX-4)+'px',top:(e.clientY-4)+'px',width:'8px',height:'8px',borderRadius:'50%',border:'1px solid rgba(255,226,154,.8)',pointerEvents:'none',zIndex:9999,transform:'scale(1)',opacity:'1',transition:'transform .65s ease,opacity .65s ease'});
+    document.body.appendChild(rip);requestAnimationFrame(()=>{rip.style.transform='scale(18)';rip.style.opacity='0'});setTimeout(()=>rip.remove(),700);
+  },{passive:true});
+
+  // Gently reveal a premium message after the intro.
+  setTimeout(()=>showToast('✦ Welcome to the Imperial Birthday Experience ✦'),6200);
+})();
 </script>
 </body>
 </html>
