@@ -637,6 +637,18 @@ body.wide .letterbox{height:0vh}
   animation:fadeInUp 1.4s 2.4s ease-out both;pointer-events:none}
 .footer b{color:rgba(251,191,36,.78)}
 
+
+/* SOCIAL HUB — MAX */
+.social-mark{position:relative;z-index:1;font-size:1rem;font-weight:900;line-height:1}
+.social.personal{--soc-color:#ff4fa3;--soc-glow:rgba(255,79,163,.48)}
+.social-hub{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.hub-card{position:relative;display:flex;align-items:center;gap:12px;padding:15px;border-radius:18px;text-decoration:none;color:#fff;text-align:left;direction:ltr;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.12);transition:.35s cubic-bezier(.2,.8,.2,1);overflow:hidden}
+.hub-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,var(--hub-glow),transparent 65%);opacity:.22;transition:.35s}
+.hub-card strong{position:relative;z-index:1;width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:rgba(255,255,255,.08);font-size:1.25rem;box-shadow:0 0 22px var(--hub-glow)}
+.hub-card span{position:relative;z-index:1;display:grid;gap:3px;min-width:0}.hub-card b{font-size:.8rem}.hub-card small{font-size:.66rem;color:rgba(255,255,255,.48);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hub-card i{position:relative;z-index:1;margin-left:auto;font-style:normal;color:rgba(255,255,255,.5);font-size:1rem}.hub-card:hover{transform:translateY(-4px);border-color:var(--hub-color);box-shadow:0 15px 35px rgba(0,0,0,.45),0 0 28px var(--hub-glow)}
+.hub-card.tt{--hub-color:#25f4ee;--hub-glow:rgba(37,244,238,.35)}.hub-card.ig{--hub-color:#e1306c;--hub-glow:rgba(225,48,108,.35)}.hub-card.sc{--hub-color:#fffc00;--hub-glow:rgba(255,252,0,.25)}.hub-card.yt{--hub-color:#ff0033;--hub-glow:rgba(255,0,51,.35)}
+@media(max-width:560px){.social-hub{grid-template-columns:1fr}.social{padding:8px 11px}.social-mark{font-size:.9rem}}
+
 /* ============================================================
    KEYFRAMES
 ============================================================ */
@@ -847,42 +859,21 @@ body.max-mode::after{content:"";position:fixed;inset:0;z-index:4;pointer-events:
           </div>
         </div>
 
-        <div class="socials">
-          <a class="social ig" href="https://instagram.com/zano.b22" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-            </svg><span>Instagram</span>
+        <div class="socials" aria-label="Social accounts">
+          <a class="social tt" href="https://www.tiktok.com/@zano..02?_r=1&_t=ZS-9A53tHelEqF" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="TikTok Main">
+            <span class="social-mark">♪</span><span>TikTok · Main</span>
           </a>
-          <a class="social tt" href="https://tiktok.com/@zano.b22" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005.37 20.7a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.41-.2z"/>
-            </svg><span>TikTok</span>
+          <a class="social tt personal" href="https://www.tiktok.com/@z_22.44?_r=1&_t=ZS-9A53w5jPcjY" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="TikTok Personal">
+            <span class="social-mark">♪</span><span>TikTok · Personal</span>
           </a>
-          <a class="social yt" href="https://youtube.com/@zano.b22" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/>
-            </svg><span>YouTube</span>
+          <a class="social ig" href="https://www.instagram.com/z44noo?stkn=MXdsemJqcDdoem5kbw==" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Instagram">
+            <span class="social-mark">◎</span><span>Instagram</span>
           </a>
-          <a class="social sc" href="https://snapchat.com/add/zano.b22" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.2 2c2.9 0 4.9 2.2 4.9 5 0 1-.1 1.9-.2 2.6.4.2.9.2 1.4 0 .9-.2 1.7.6 1.4 1.5-.3.8-1.4 1.3-2.3 1.6.4 1 1.3 2.2 2.6 2.9.5.3.5 1 .1 1.4-.7.7-1.7 1-2.7 1.1-.4 0-.8.7-1.1 1.2-.3.5-.7.8-1.4.6-1-.3-1.9-.5-2.9-.5s-1.9.2-2.9.5c-.7.2-1.1-.1-1.4-.6-.3-.5-.7-1.2-1.1-1.2-1 0-2-.4-2.7-1.1-.4-.4-.4-1.1.1-1.4 1.3-.7 2.2-1.9 2.6-2.9-.9-.3-2-.8-2.3-1.6-.3-.9.5-1.7 1.4-1.5.5.1 1 .2 1.4 0-.1-.7-.2-1.6-.2-2.6 0-2.8 2-5 4.9-5z"/>
-            </svg><span>Snapchat</span>
+          <a class="social sc" href="https://snapchat.com/t/qOynmHeG" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="Snapchat">
+            <span class="social-mark">👻</span><span>Snapchat</span>
           </a>
-          <a class="social fb" href="https://facebook.com/zano.b22" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 12a12 12 0 10-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3.1 1.8-4.8 4.6-4.8 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.3h3.4l-.5 3.5h-2.9v8.4A12 12 0 0024 12z"/>
-            </svg><span>Facebook</span>
-          </a>
-          <a class="social x" href="https://x.com/zano_b22" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.9 2h3.4l-7.4 8.5L23.7 22h-6.8l-5.3-7-6.1 7H2.1l7.9-9L1.5 2h7l4.8 6.4L18.9 2zm-1.2 18h1.9L7.4 3.9H5.4L17.7 20z"/>
-            </svg><span>X</span>
-          </a>
-          <a class="social dc" href="https://discord.gg/zanob22" target="_blank" rel="noopener" onclick="event.stopPropagation()">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.3 4.4A19.8 19.8 0 0015.6 3l-.2.4a18.3 18.3 0 014.2 2.1 17.5 17.5 0 00-15.2 0A18.3 18.3 0 018.6 3.4L8.4 3a19.8 19.8 0 00-4.7 1.4A20.4 20.4 0 000 19a19.9 19.9 0 006 3l.7-1.1a12.8 12.8 0 01-2-1l.5-.3a14.3 14.3 0 0012.3 0l.5.3a12.8 12.8 0 01-2 1l.7 1.1a19.9 19.9 0 006-3 20.4 20.4 0 00-3.7-14.6zM8.3 15.4c-1.2 0-2.2-1.1-2.2-2.4S7 10.6 8.3 10.6s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4zm7.4 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4z"/>
-            </svg><span>Discord</span>
+          <a class="social yt" href="https://youtube.com/@zanoo.b22?si=WLmZsbPEl1uodv1y" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" aria-label="YouTube">
+            <span class="social-mark">▶</span><span>YouTube</span>
           </a>
         </div>
       </div>
@@ -902,6 +893,7 @@ body.max-mode::after{content:"";position:fixed;inset:0;z-index:4;pointer-events:
   <button data-panel="fortune"><span class="ic">🥠</span><span class="label">Bext</span></button>
   <button data-panel="capsule"><span class="ic">💌</span><span class="label">Capsule</span></button>
   <button data-panel="voice"><span class="ic">🎙️</span><span class="label">Deng</span></button>
+  <button data-panel="social"><span class="ic">✦</span><span class="label">Social</span></button>
 </nav>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -1023,6 +1015,20 @@ body.max-mode::after{content:"";position:fixed;inset:0;z-index:4;pointer-events:
     </div>
   </div>
 
+  <!-- SOCIAL HUB -->
+  <div class="modal-panel" id="panel-social">
+    <button class="panel-close" data-close>✕</button>
+    <div class="panel-title">✦ Social Hub</div>
+    <div class="panel-hint">تەنها ئەکاونتە ڕەسەنەکانی Zano</div>
+    <div class="social-hub">
+      <a class="hub-card tt" href="https://www.tiktok.com/@zano..02?_r=1&_t=ZS-9A53tHelEqF" target="_blank" rel="noopener noreferrer"><strong>♪</strong><span><b>TikTok · Main</b><small>@zano..02</small></span><i>↗</i></a>
+      <a class="hub-card tt" href="https://www.tiktok.com/@z_22.44?_r=1&_t=ZS-9A53w5jPcjY" target="_blank" rel="noopener noreferrer"><strong>♪</strong><span><b>TikTok · Personal</b><small>@z_22.44</small></span><i>↗</i></a>
+      <a class="hub-card ig" href="https://www.instagram.com/z44noo?stkn=MXdsemJqcDdoem5kbw==" target="_blank" rel="noopener noreferrer"><strong>◎</strong><span><b>Instagram</b><small>@z44noo</small></span><i>↗</i></a>
+      <a class="hub-card sc" href="https://snapchat.com/t/qOynmHeG" target="_blank" rel="noopener noreferrer"><strong>👻</strong><span><b>Snapchat</b><small>Open profile</small></span><i>↗</i></a>
+      <a class="hub-card yt" href="https://youtube.com/@zanoo.b22?si=WLmZsbPEl1uodv1y" target="_blank" rel="noopener noreferrer"><strong>▶</strong><span><b>YouTube</b><small>@zanoo.b22</small></span><i>↗</i></a>
+    </div>
+  </div>
+
   <!-- VOICE MESSAGE -->
   <div class="modal-panel" id="panel-voice">
     <button class="panel-close" data-close>✕</button>
@@ -1067,7 +1073,7 @@ body.max-mode::after{content:"";position:fixed;inset:0;z-index:4;pointer-events:
 </div>
 
 <div class="footer">
-  Designed with <b>❤</b> for the one &amp; only <b>Zano.B22</b> · Age 19
+  Designed with <b>❤</b> for <b>Zano.B22</b> · Imperial Birthday Experience
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -1309,6 +1315,10 @@ function playMelody(){
 ============================================================ */
 (function threeScene(){
   const container = document.getElementById('canvas-container');
+  if (!window.THREE) {
+    container.innerHTML = '';
+    return;
+  }
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(58, innerWidth/innerHeight, 0.1, 500);
   camera.position.set(0, 3.4, 13);
@@ -1822,15 +1832,18 @@ document.getElementById('fxBtn').addEventListener('click', e => {
 });
 
 /* Fullscreen */
-document.getElementById('wideBtn').addEventListener('click', e => {
-  e.stopPropagation();
-  document.body.classList.toggle('wide');
-  if (!document.fullscreenElement){
-    document.documentElement.requestFullscreen?.().catch(()=>{});
-  } else {
-    document.exitFullscreen?.();
-  }
-});
+async function toggleFullscreen(){
+  try{
+    if(!document.fullscreenElement){
+      await document.documentElement.requestFullscreen?.();
+    }else{
+      await document.exitFullscreen?.();
+    }
+  }catch(err){ /* Browser may deny fullscreen; keep cinema mode available. */ }
+  document.body.classList.toggle('wide', !!document.fullscreenElement);
+}
+document.getElementById('wideBtn').addEventListener('click', e => { e.stopPropagation(); toggleFullscreen(); });
+document.addEventListener('fullscreenchange',()=>document.body.classList.toggle('wide',!!document.fullscreenElement));
 
 /* ============================================================
    9 · MODALS
@@ -1939,6 +1952,14 @@ candles.forEach(c => {
     e.stopPropagation(); idx--; update();
     if (audioCtx) playChime();
   });
+  let touchX = null;
+  stage.addEventListener('touchstart', e => { touchX = e.changedTouches[0]?.clientX ?? null; }, {passive:true});
+  stage.addEventListener('touchend', e => {
+    if(touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if(Math.abs(dx) > 45){ idx += dx < 0 ? 1 : -1; update(); if(audioCtx) playChime(); }
+    touchX = null;
+  }, {passive:true});
   // Auto rotate
   setInterval(() => { idx++; update(); }, 4200);
 })();
@@ -1984,15 +2005,24 @@ document.getElementById('cookie').addEventListener('click', e => {
 });
 
 /* VOICE MESSAGE */
-document.getElementById('voicePlayBtn').addEventListener('click', e => {
+const voicePlayBtn = document.getElementById('voicePlayBtn');
+const voiceAudio = document.getElementById('voiceAudio');
+voicePlayBtn.addEventListener('click', e => {
   e.stopPropagation();
-  const a = document.getElementById('voiceAudio');
   initAudio();
-  a.play().catch(() => {
-    alert('🔥 فایلێ voice-message.mp3 nenaskirin — ل گەل HTML دابنێ.');
-  });
-  spawnBurst(innerWidth/2, innerHeight/2, {count:70, power:6, color:'#ec4899'});
+  if(voiceAudio.paused){
+    voiceAudio.play().then(()=>{
+      voicePlayBtn.textContent='⏸️ راوەستاندن';
+      spawnBurst(innerWidth/2, innerHeight/2, {count:70, power:6, color:'#ec4899'});
+    }).catch(()=>{
+      voicePlayBtn.textContent='⚠️ پەیام بەردەست نییە';
+    });
+  }else{
+    voiceAudio.pause();
+    voicePlayBtn.textContent='▶️ لێدانی پەیام';
+  }
 });
+voiceAudio.addEventListener('ended',()=>{ voicePlayBtn.textContent='▶️ دووبارە لێدان'; });
 
 /* ============================================================
    10 · CTA → FINALE
@@ -2109,12 +2139,12 @@ setTimeout(() => {
 
   // Keyboard / accessibility shortcuts.
   document.addEventListener('keydown',e=>{
-    if(e.key==='Escape'){ document.getElementById('modal')?.classList.remove('on'); }
+    if(e.key==='Escape'){ if(typeof closePanel==='function') closePanel(); }
     if(e.key.toLowerCase()==='m'){
       const b=document.getElementById('musicBtn'); if(b){b.click();showToast('🎵 Music control toggled');}
     }
     if(e.key.toLowerCase()==='f'){
-      const b=document.getElementById('fullBtn'); if(b){b.click();showToast('⛶ Cinema view toggled');}
+      const b=document.getElementById('wideBtn'); if(b){b.click();showToast('⛶ Cinema view toggled');}
     }
   });
 
